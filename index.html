@@ -1,33 +1,310 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wyzer Programming Language</title>
 
-  <title>Wyzer Programming Language</title>
-  <meta name="title" content="Wyzer Programming Language" />
-  <meta name="description"
-    content="The modern, blazingly fast programming language designed for ultimate developer experience and safety." />
-  <meta name="theme-color" content="#4D00FF" />
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/maple-mono/index.css" />
 
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Wyzer Programming Language" />
-  <meta property="og:description"
-    content="The modern, blazingly fast programming language designed for ultimate developer experience and safety." />
-  <meta property="og:image" content="/favicon.svg" />
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" rel="stylesheet" />
 
-  <meta property="twitter:card" content="summary" />
-  <meta property="twitter:title" content="Wyzer Programming Language" />
-  <meta property="twitter:description"
-    content="The modern, blazingly fast programming language designed for ultimate developer experience and safety." />
-  <meta property="twitter:image" content="/favicon.svg" />
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#4D00FF" />
 </head>
 
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+
+    <div class="announcement-banner">
+        We are actively looking for contributors!
+        <a href="https://github.com/wyzer-lang/wyzer" target="_blank">Join us on GitHub</a>
+    </div>
+
+    <nav class="navbar-container">
+        <div class="navbar">
+            <div class="nav-brand" style="display: flex; align-items: center; gap: 10px;">
+                <svg width="36" height="36" viewBox="0 0 354 273" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M88.5 32.4629L102.799 64.5393H51.3996L119.803 204.052L176.227 108.596L234.583 204.052L301.441 64.5393H250.814L266.659 32.4629H354L238.834 272.07L176.227 169.271L115.552 272.07L0 32.4629H88.5Z" fill="currentColor"/>
+                    <path d="M104.345 124.828L121.349 159.609L176.613 62.2205L231.877 159.609L248.495 124.828L176.613 0L104.345 124.828Z" fill="currentColor"/>
+                </svg>
+                <span><a href="/" style="text-decoration: none; color: inherit;">WYZER</a></span>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="#toddler">What is it?</a></li>
+                <li class="nav-item"><a href="#examples">Examples</a></li>
+                <li class="nav-item"><a href="#features">Features</a></li>
+                <li class="nav-item"><a href="#faq">FAQ</a></li>
+                <li class="nav-item"><a href="https://discord.gg/RhpPhkTrVu" target="_blank">Discord</a></li>
+                <li class="nav-item"><a href="https://github.com/wyzer-lang/wyzer" target="_blank">GitHub</a></li>
+                <li class="nav-item" style="display: flex; align-items: center;">
+                    <button id="theme-toggle" class="brutal-btn-base" style="padding: 0.2rem 0.6rem; font-size: 0.9rem; margin-left: 1rem; background-color: var(--surface-color); color: var(--text-primary);">
+                        <span id="theme-icon">☾</span> Theme
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-text-column">
+                <h1 class="hero-title">
+                    BUILD FASTER WITH <span class="highlight-box">WYZER</span>
+                </h1>
+                <p class="hero-subtitle">
+                    The modern, blazingly fast programming language designed for ultimate developer experience and
+                    safety.
+                </p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/wyzer-lang/wyzer" target="_blank" style="text-decoration: none;">
+                        <button class="brutal-btn-base btn-primary">Get Started</button>
+                    </a>
+                    <a href="https://docs.wyzer-lang.org" target="_blank" style="text-decoration: none;">
+                        <button class="brutal-btn-base btn-secondary">Read Documentation</button>
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-code-column">
+                <div class="hero-code-window">
+                    <div class="hero-code-header">
+                        <span>server.wyz</span>
+                    </div>
+                    <pre><code class="language-rust">// A simple TCP server in Wyzer
+fn main() {
+    let server = std::net::TcpListener::bind("127.0.0.1:8080");
+    std::io::println("Server running on port 8080...");
+
+    for stream in server.incoming() {
+        std::io::println("New connection!");
+        stream.write("Hello from Wyzer!");
+    }
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="toddler" class="toddler-section">
+        <div class="toddler-container animate-on-scroll">
+            <h2 class="section-title">Explain It To Me Like I'm A Toddler</h2>
+            <div class="toddler-box">
+                <p>Imagine you have a bunch of toys (memory and data), and you want to share them with your friends
+                    across the room (networks and threads).</p>
+                <p>Usually, you need three different strict adults (a garbage collector, a borrow checker, and network
+                    protocols) to watch everyone and make sure no one fights over the toys or loses them in the air.</p>
+                <p><strong>Wyzer just teaches everyone one simple rule to share toys perfectly.</strong> You write one
+                    set of instructions, and Wyzer automatically figures out how to safely pass the toys between you and
+                    your friends over the network. No adults needed!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="examples" class="examples-section">
+        <div class="example-block animate-on-scroll">
+            <div class="example-text">
+                <h3>Distributed Choreography</h3>
+                <p>Write code for multiple computers in a single file. The compiler automatically figures out network
+                    messages and splits the binaries.</p>
+                <p>When you call a function on the Sensor from the Server, Wyzer safely transfers the data over the
+                    network for you.</p>
+            </div>
+            <div class="example-code sleek-code-window">
+                <div class="sleek-code-header">
+                    <div class="sleek-tab">choreography.wyz</div>
+                </div>
+                <pre><code class="language-rust">role @Server;
+role @Sensor;
+
+// This function lives and runs ONLY on the Sensor
+fn get_temperature() @ Sensor -> u32 {
+    return 72u32;
+}
+
+fn main() @ Server {
+    // The Server safely requests data from the Sensor
+    let data: u32 = transfer(get_temperature(), Server);
+    std::io::println(data);
+}</code></pre>
+            </div>
+        </div>
+        <div class="example-block reverse animate-on-scroll">
+            <div class="example-text">
+                <h3>Perceus Memory Model</h3>
+                <p>Lightning-fast memory management without a Garbage Collector or a complex Borrow Checker.</p>
+                <p>If a piece of data has only one owner, the compiler mutates it directly in memory. This makes Wyzer
+                    as fast as C, but completely safe by default.</p>
+            </div>
+            <div class="example-code sleek-code-window">
+                <div class="sleek-code-header">
+                    <div class="sleek-tab">memory.wyz</div>
+                </div>
+                <pre><code class="language-rust">struct Point { x: u32, y: u32 }
+
+fn main() {
+    var p: Point = Point { x: 10u32, y: 20u32 };
+    
+    // The compiler knows 'p' is never used again after this.
+    // Instead of asking for new memory, it overwrites 'p' directly!
+    var p2: Point = Point { x: 100u32, y: p.y };
+}</code></pre>
+            </div>
+        </div>
+        <div class="example-block animate-on-scroll">
+            <div class="example-text">
+                <h3>Explicit Error Handling</h3>
+                <p>Errors are not hidden. Functions that can fail return a <code>Result&lt;T, E&gt;</code>.</p>
+                <p>You use <code>match</code> expressions to safely handle both the success (<code>Ok</code>) and error
+                    (<code>Err</code>) cases, guaranteeing you never crash unexpectedly.</p>
+            </div>
+            <div class="example-code sleek-code-window">
+                <div class="sleek-code-header">
+                    <div class="sleek-tab">errors.wyz</div>
+                </div>
+                <pre><code class="language-rust">fn main() {
+    let result: Result&lt;u32, str&gt; = Ok(42u32);
+    
+    match (result) {
+        Ok(value) => std::io::println(value),
+        Err(err_msg) => std::io::println(0u32)
+    };
+}</code></pre>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="features-section">
+        <div class="features-header">
+            <h2 class="section-title">Why Wyzer?</h2>
+        </div>
+
+        <div class="features-grid">
+            <div class="feature-card animate-on-scroll">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Lightning Fast</h3>
+                <p class="feature-description">Compiled directly to optimized machine code, Wyzer delivers unmatched
+                    execution speed without a runtime.</p>
+            </div>
+            <div class="feature-card animate-on-scroll" style="transition-delay: 0.1s">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Memory Safe</h3>
+                <p class="feature-description">Advanced compile-time checks and the Perceus memory model ensure safety
+                    without a garbage collector.</p>
+            </div>
+
+            <div class="feature-card animate-on-scroll" style="transition-delay: 0.2s">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path>
+                        <line x1="16" y1="8" x2="2" y2="22"></line>
+                        <line x1="17.5" y1="15" x2="9" y2="15"></line>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Expressive Syntax</h3>
+                <p class="feature-description">Write less, do more. Clean, explicit syntax inspired by the best modern
+                    programming languages.</p>
+            </div>
+
+            <div class="feature-card animate-on-scroll" style="transition-delay: 0.3s">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="8" x2="12" y2="12"></line>
+                        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                    </svg>
+                </div>
+                <h3 class="feature-title">No Hidden Magic</h3>
+                <p class="feature-description">No async/await split, no hidden exceptions. Everything the compiler does
+                    is visible and predictable.</p>
+            </div>
+
+            <div class="feature-card animate-on-scroll" style="transition-delay: 0.4s">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect>
+                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect>
+                        <line x1="6" y1="6" x2="6.01" y2="6"></line>
+                        <line x1="6" y1="18" x2="6.01" y2="18"></line>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Single File Networks</h3>
+                <p class="feature-description">Write code for multiple computers in one file. The compiler splits the
+                    binaries and handles the networking.</p>
+            </div>
+
+            <div class="feature-card animate-on-scroll" style="transition-delay: 0.5s">
+                <div class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Zero-Cost Polymorphism</h3>
+                <p class="feature-description">Role inference allows you to write utility functions that seamlessly
+                    execute across any network node without overhead.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq-section">
+        <div class="faq-container animate-on-scroll">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h4>"Isn't this just Rust with extra steps?"</h4>
+                    <p>No. We want Rust's safety without its steep learning curve. We use a different method (Perceus)
+                        for memory, and Rust does not have our network features.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>"Isn't choreographic programming already a solved research area?"</h4>
+                    <p>The math works, but it is mostly used in research, not real languages. We want to bring it to a
+                        general-purpose language.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>"Why not just use effect handlers / async-await / a GC like everyone else does?"</h4>
+                    <p>Those tools solve specific problems. Wyzer is trying to see if one single rule can solve memory,
+                        threads, and networks all at once.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h4>"What's the elevator pitch, one more time?"</h4>
+                    <p>One ownership rule for memory, threads, and networks. No garbage collector, no complex borrow
+                        checker, and no network errors.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-section" style="padding: 20px; text-align: center;">
+        <p style="font-weight: bold;">&copy; 2026 Wyzer Programming Language. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-rust.min.js"></script>
+
+    <script src="script.js"></script>
+
 </body>
 
 </html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Not Found - Wyzer</title>
+    
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/maple-mono/index.css" />
+    
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#4D00FF" />
+</head>
+<body>
+
+    <div class="announcement-banner">
+        We are actively looking for contributors! 
+        <a href="https://github.com/wyzer-lang/wyzer" target="_blank">Join us on GitHub</a>
+    </div>
+
+    <nav class="navbar-container">
+        <div class="navbar">
+            <div class="nav-brand" style="display: flex; align-items: center; gap: 10px;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    style="filter: brightness(0);">
+                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                    <polyline points="2 17 12 22 22 17"></polyline>
+                    <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                <span><a href="/" style="text-decoration: none; color: inherit;">WYZER</a></span>
+            </div>
+            <ul class="nav-links">
+                <li class="nav-item"><a href="/">Home</a></li>
+                <li class="nav-item"><a href="https://discord.gg/RhpPhkTrVu" target="_blank">Discord</a></li>
+                <li class="nav-item"><a href="https://github.com/wyzer-lang/wyzer" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero-section" style="min-height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background-color: var(--brutal-yellow); padding-top: 10rem;">
+        <h1 class="hero-title" style="font-size: 8rem; margin-bottom: 0;">404</h1>
+        <h2 style="font-size: 2.5rem; font-weight: 800; text-transform: uppercase; margin-bottom: 2rem;">Page Not Found</h2>
+        
+        <p style="font-size: 1.25rem; font-weight: 500; margin-bottom: 3rem; max-width: 500px; background: var(--surface-color); padding: 1.5rem; border: var(--border-width) solid var(--border-color); box-shadow: var(--box-shadow);">
+            Looks like you tried to access a memory region that doesn't exist. The Wyzer compiler caught this error before you could segfault!
+        </p>
+        
+        <a href="/" style="text-decoration: none;">
+            <button class="brutal-btn-base btn-primary" style="background-color: var(--brutal-cyan); font-size: 1.2rem; padding: 1rem 3rem;">Return Home</button>
+        </a>
+    </section>
+
+    <footer class="footer-section" style="padding: 20px; text-align: center;">
+        <p style="font-weight: bold;">&copy; 2026 Wyzer Programming Language. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
